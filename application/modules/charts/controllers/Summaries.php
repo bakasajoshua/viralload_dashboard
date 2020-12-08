@@ -316,7 +316,7 @@ class Summaries extends MY_Controller {
 		$link = $year . '/' . $month . '/' . $to_year . '/' . $to_month;
 
 		$data['link'] =  base_url('charts/county/download_county_table/' . $link);
-		$data['table_div'] = "first_table";
+		$data['table_div'] = "county_partner_datatable";
 
     	$this->load->view('counties_table_view',$data);
 	}
