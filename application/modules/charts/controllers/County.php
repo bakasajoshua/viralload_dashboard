@@ -57,7 +57,7 @@ class County extends MY_Controller
 		$link = $year . '/' . $month . '/' . $county . '/' . $to_year . '/' . $to_month;
 
 		$data['link'] =  base_url('charts/county/download_partner_county_table/' . $link);
-		$data['table_div'] = "third_table";
+		$data['table_div'] = "county_partners_datatable";
 
     	$this->load->view('counties_table_view',$data);
 	}
