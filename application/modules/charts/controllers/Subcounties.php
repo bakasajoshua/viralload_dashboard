@@ -79,6 +79,7 @@ class Subcounties extends MY_Controller
 		
     	$link = $year . '/' . $month . '/' . $subcounty . '/' . $to_year . '/' . $to_month;
 		$data['link'] =  base_url('charts/subcounties/download_subcounty_sites/' . $link);
+		$data['div_name'] = 'subcounty_sites_datatable';
 
     	$this->load->view('partner_site__view',$data);
 	}

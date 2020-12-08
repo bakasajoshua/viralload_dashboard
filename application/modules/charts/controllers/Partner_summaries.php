@@ -33,6 +33,7 @@ class Partner_summaries extends MY_Controller
 		// $data['link'] = "<a href='" . base_url('charts/partner_summaries/download_partner_counties/' . $link) . "'><button class='btn btn-primary' style='background-color: #009688;color: white;'>Export to Excel</button></a>";
 		$data['link'] = base_url('charts/partner_summaries/download_partner_counties/' . $link);
 		$data['link2'] = "<a href='" . base_url('charts/sites/download_partner_supported_sites/' . $link2) . "'><button class='btn btn-primary' style='background-color: #009688;color: white;'>DOWNLOAD LIST OF ALL SUPPORTED SITES</button></a>";
+		$data['div_name'] = 'partner_counties_datatable';
 
     	$this->load->view('partner__site__view',$data);
 	}
