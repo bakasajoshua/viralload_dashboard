@@ -52,7 +52,7 @@
 <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {
 
-  	$('#example').DataTable({
+  	$("#<?php if(isset($div_name)){ echo $div_name; }else{ echo 'example'; } ?>").DataTable({
   		dom: '<"btn btn-primary"B>lTfgtip',
 		responsive: false,
 	    buttons : [
