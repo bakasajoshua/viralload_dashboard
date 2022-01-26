@@ -240,41 +240,48 @@ class SummaryController extends Controller
 			<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;Routine VL Tests with Valid Outcomes:</td>
 	    		<td>'.number_format($total).'</td>
-	    		<td>Suppression</td>
+	    		<td>Proportion of Routine VL Tests suppressed</td>
 	    		<td>'.number_format(round((@($total/$total_tests)*100), 2)).'%</td>
 	    	</tr>
 
 	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Tests &gt;= 1000 copies/ml (HVL):</td>
+	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Tests &gt;= 1000 copies/ml (HVL):</td>
 	    		<td>'.number_format($greater).'</td>
-	    		<td>Percentage Suppression</td>
-	    		<td>'.round((@($greater/$total)*100),1).'%</td>
+	    		<td>Proportion of Valid HVL Tests Suppressed</td>
+	    		<td>'.round((@($greater/$total)*100),2).'%</td>
+	    	</tr>
+
+			<tr>
+	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Tests &lt= 1000 copies/ml:</td>
+	    		<td>'.number_format($less).'</td>
+	    		<td>Proportion of Valid Tests &lt= 1000 copies/ml Suppressed</td>
+	    		<td>'.number_format(round((@($less/$total)*100), 2)).'%</td>
 	    	</tr>
 
 	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Tests &lt= 400 copies/ml (LDL):</td>
+	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Tests &lt= 400 copies/ml (LDL):</td>
 	    		<td>'.number_format($value['undetected']).'</td>
-	    		<td>Percentage Suppression</td>
-	    		<td>'.round((@($value['undetected']/$total)*100),1).'%</td>
+	    		<td>Proportion of Valid LDL Tests Suppressed</td>
+	    		<td>'.round((@($value['undetected']/$total)*100),2).'%</td>
 	    	</tr>
 
 	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Tests 401 - 999 copies/ml (LLV):</td>
+	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Tests 401 - 999 copies/ml (LLV):</td>
 	    		<td>'.number_format($value['less1000']).'</td>
-	    		<td>Percentage Suppression</td>
-	    		<td>'.round((@($value['less1000']/$total)*100),1).'%</td>
+	    		<td>Proportion of Valid LLV Tests Suppressed</td>
+	    		<td>'.round((@($value['less1000']/$total)*100),2).'%</td>
 	    	</tr>
 	    	<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;Confirmatory Repeat Tests:</td>
 	    		<td>'.number_format($value['confirmtx']).'</td>
 	    		<td>Non Suppression ( &gt;= 1000cp/ml)</td>
-	    		<td>'.number_format($value['confirm2vl']). ' (' .round(@($value['confirm2vl'] * 100 / $value['confirmtx']), 1). '%)' .'</td>
+	    		<td>'.number_format($value['confirm2vl']). ' (' .round(@($value['confirm2vl'] * 100 / $value['confirmtx']), 2). '%)' .'</td>
 	    	</tr>
 	    	<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;Baseline VLs:</td>
 	    		<td>'.number_format($value['baseline']).'</td>
 	    		<td>Non Suppression ( &gt;= 1000cp/ml)</td>
-	    		<td>'.number_format($value['baselinesustxfail']). ' (' .round(@($value['baselinesustxfail'] * 100 / $value['baseline']), 1). '%)' .'</td>
+	    		<td>'.number_format($value['baselinesustxfail']). ' (' .round(@($value['baselinesustxfail'] * 100 / $value['baseline']), 2). '%)' .'</td>
 	    	</tr>';
 
 	    if (isset($pmtct)) {
@@ -285,16 +292,19 @@ class SummaryController extends Controller
 		    		<td>' . $line->pmtcttype . ':</td>
 		    		<td>'.number_format($line_tests).'</td>
 		    		<td>Percentage Suppression</td>
-		    		<td>'. round(@(($line_suppressed*100)/$line_tests), 1, PHP_ROUND_HALF_UP).'%</td>
+		    		<td>'. round(@(($line_suppressed*100)/$line_tests), 2, PHP_ROUND_HALF_UP).'%</td>
 		    	</tr>';
 	    	}
 	    }
 
 	    $data['paragraph'] .= '<tr>
-	    		<td>Rejected Samples:</td>
+	    		<td>
+	    			Rejected Samples:
+	    			<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Rejected samples are samples that are not processed once gotten to the lab due to issues like sample damage, lack of request form accompaning the samples etc." style="padding-left: 2px;padding-right: 2px;padding-top: 2px;padding-bottom: 2px;"><i>?</i></button>
+	    		</td>
 	    		<td>'.number_format($value['rejected']).'</td>
 	    		<td>Percentage Rejection Rate</td>
-	    		<td>'. round(@(($value['rejected']*100)/$value['received']), 1, PHP_ROUND_HALF_UP).'%</td>
+	    		<td>'. round(@(($value['rejected']*100)/$value['received']), 2, PHP_ROUND_HALF_UP).'%</td>
 	    	</tr>';
     	/*
 			<tr>

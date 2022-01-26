@@ -31,12 +31,12 @@
 			<div class="title-name">Key</div>
 			<div class="row">
 				<div class="col-md-6">
-					<div class="key cr"><center>Collection Receipt (C-R)</center></div>
-					<div class="key rp"><center>Receipt to Processing (R-P)</center></div>
+					<div class="key cr" style="background-color: rgba(255,0,0,0.5);"><center>Collection to Receipt (C-R)</center></div>
+					<div class="key rp" style="background-color: rgba(255,255,0,0.5);"><center>Receipt to Processing (R-P)</center></div>
 				</div>
 				<div class="col-md-6">
-					<div class="key pd"><center>Processing Dispatch (P-D)</center></div>
-					<div class="key"><center><div class="cd"></div>Collection Dispatch (C-D)</center></div>
+					<div class="key pd" style="background-color: rgba(0,255,0,0.5);"><center>Processing to Dispatch (P-D)</center></div>
+					<div class="key"><center><div class="cd"></div>Collection to Dispatch (C-D)</center></div>
 				</div>
 			</div>
 		</div>

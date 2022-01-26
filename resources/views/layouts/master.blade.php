@@ -31,6 +31,13 @@
 
 	<link rel=icon href="/img/kenya-coat-of-arms.png" type="image/png" />
 	<title> Dashboard </title>
+	<style type="text/css">
+		body {
+		  /*font-family: "Lucida Console", "Courier New", monospace;*/
+			font-family: /*Arial,*/Geneva, Helvetica, sans-serif;
+			font-size: 1.2em;
+		}
+	</style>
 </head>
 
 <body>
